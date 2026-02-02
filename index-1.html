@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>HOKAGE | Choose Your Path</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI,Arial,sans-serif;
+  background:linear-gradient(180deg,#0b0e14,#120f1a);
+  color:#fff;
+  overflow-x:hidden;
+}
+.petal{
+  position:fixed;
+  top:-10vh;
+  width:12px;height:12px;
+  background:radial-gradient(circle at 30% 30%,#ffd6e8,#ff9acb 60%,#ff6fae);
+  border-radius:60% 40% 60% 40%;
+  opacity:.8;
+  pointer-events:none;
+  animation:fall linear infinite,sway ease-in-out infinite;
+}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@keyframes sway{50%{margin-left:40px}}
+
+header{
+  padding:80px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#ff9acb,#ff6fae);
+}
+header h1{font-size:56px;margin:0;letter-spacing:6px}
+header p{opacity:.9}
+
+.hub{
+  max-width:1100px;
+  margin:80px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  padding:0 20px;
+}
+.tile{
+  background:linear-gradient(180deg,#171327,#1f1835);
+  border-radius:22px;
+  padding:40px 30px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
+  transition:.3s;
+  cursor:pointer;
+}
+.tile:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(255,154,203,.25);
+}
+.tile h3{
+  margin:0 0 10px;
+  color:#ffd6e8;
+  letter-spacing:1px;
+}
+.tile p{opacity:.8;font-size:15px}
+
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.5;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>HOKAGE</h1>
+  <p>Выбери, что тебе нужно</p>
+</header>
+
+<section class="hub">
+  <div class="tile" onclick="alert('Здесь будет вход на сервера')">
+    <h3>🎮 Сервера</h3>
+    <p>Public • DM • Arena</p>
+  </div>
+
+  <div class="tile" onclick="alert('Здесь будет магазин')">
+    <h3>🛒 Магазин</h3>
+    <p>Скины • Кейсы • VIP</p>
+  </div>
+
+  <div class="tile" onclick="alert('Здесь будет профиль')">
+    <h3>👤 Профиль</h3>
+    <p>Статистика • Steam</p>
+  </div>
+
+  <div class="tile" onclick="alert('Здесь будет донат')">
+    <h3>💳 Донат</h3>
+    <p>Поддержка проекта</p>
+  </div>
+</section>
+
+<footer>© 2026 HOKAGE | Sakura Hub</footer>
+
+<script>
+for(let i=0;i<28;i++){
+  const p=document.createElement('div');
+  p.className='petal';
+  p.style.left=Math.random()*100+'vw';
+  p.style.animationDuration=(Math.random()*6+8)+'s';
+  document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
